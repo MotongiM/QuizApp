@@ -1,8 +1,7 @@
--- Drop and recreate Widgets table (Example)
-
-DROP TABLE IF EXISTS widgets CASCADE;
-CREATE TABLE widgets (
+DROP TABLE IF EXISTS attempts CASCADE;
+CREATE TABLE attempts (
   id SERIAL PRIMARY KEY NOT NULL,
-  user_id INTEGER REFERENCES users(id),
-  name VARCHAR(255) NOT NULL
+
+  quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES users(id) DEFAULT 'guest' ON DELETE CASCADE
 );
