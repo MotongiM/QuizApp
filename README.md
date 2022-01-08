@@ -41,3 +41,44 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+
+## Production notes
+
+ROUTES
+
+    -permanent navbar
+
+    with pages 1 through 3
+
+    myaccount (take to page 4) (only if logged in)
+
+    login/logout/register button(s) 
+
+    and footer with credits etc
+
+
+
+    homepage (
+
+    -preview some quizzes
+
+    -prevew your created quizzes (if logged in)
+
+    create quiz page
+
+    take quiz page (shows all public quizzes)
+
+    quizzes you created page and results on your quizzes (share button on every item) (delete button for quizzes)
+
+    taking the quiz page
+
+    result page (accessed from 6 after finish or from 5 from list) + share + back to public quizzes (page 3)
+
+    login/register page
+
+
+
+attempts dashboard (stretch)
+login validation (stretch)
+
+
