@@ -3,4 +3,18 @@
 body,
 html {
   margin: 0;
+  color: white
+}
+h1 {
+  color: black;
+}
+.nav {
+  position : absolute;
+  top: 0px;
+  width : 95%;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 1em;
+  padding-block: 0.5em;
+  border-bottom: solid 5px #ffffff;
 }
