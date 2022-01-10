@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS user_attempts CASCADE;
-CREATE TABLE user_attempts (
+DROP TABLE IF EXISTS attempt_answers CASCADE;
+CREATE TABLE attempt_answers (
   id SERIAL PRIMARY KEY NOT NULL,
 
   attempt_id INTEGER NOT NULL REFERENCES attempts(id) ON DELETE CASCADE,
