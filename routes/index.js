@@ -8,10 +8,10 @@ module.exports = (db) => {
 
   router.get('/:user_id', (req, res) => {
     req.session.user_id = req.params.user_id;
-    db.query(`SELECT * FROM Quizzes WHERE public = TRUE;
+    db.query(`SELECT * FROM quizzes WHERE public = TRUE;
     `)
     .then(data => {
-      const templateVars = {Quizzes: data.rows, user_id:params.user_id};
+      const templateVars = {quizzes: data.rows, user_id:params.user_id};
       res.render('../views/index.ejs', templateVars);
     })
 
