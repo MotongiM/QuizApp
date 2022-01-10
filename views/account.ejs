@@ -19,12 +19,38 @@
   </header>
   <h1>Have fun! 🥔</h1>
   <main>
-    <div class="username">Welcome user</div>
-    <div class="your-quizzes">Your quizzes</div>
-    <div class="your-quizzes">Your quizzes</div>
-    <div>Create a quiz</div>
-    <div>Create a quiz</div>
-    <div>Create a quiz</div>
+    <h1 class="username">Welcome user</h1>
+    <% if (results.length !== 0) { %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Attempt</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let result of results) { %>
+
+              <tr>
+                <td><%= result %></td>
+                <td>
+                  <form method="GET" action= "/attemptid" >
+                    <input type="submit" value="Result">
+                </form>
+                </td>
+                <td>
+                  <form method="GET" action="/quiz_id_share>/">
+                    <input type ="submit" value="Share">
+                  </form>
+                </td>
+              </tr>
+          <% } %>
+        </tbody>
+      </table>
+    <% } %>
+      <div>Create a quiz</div>
+      <h2>Your results<h2>
   </main>
 
 </body>
