@@ -21,7 +21,7 @@
   <main>
     <div class="username">Welcome user</div>
     <div class="quiz-list">
-      <% for(let quiz of publicQuizzes) { %>
+      <% for(let quiz of quizzes) { %>
         <div class="quiz-box">
           <div class="quiz-title">
             <%= quiz.quizTitle %>
@@ -30,7 +30,7 @@
             <%= quiz.quizDescription %>
           </div>
         </div>
-
+      <% } %>
 
 
     </div>
