@@ -21,10 +21,11 @@
   <main>
     <h1 class="username">Welcome user</h1>
     <% if (results.length !== 0) { %>
+      <h2>Your results</h2>
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">Attempt</th>
+            <th scope="col">Attempts</th>
             <th scope="col"></th>
             <th scope="col"></th>
           </tr>
@@ -49,8 +50,11 @@
         </tbody>
       </table>
     <% } %>
-      <div>Create a quiz</div>
-      <h2>Your results<h2>
+    <form method="GET" action= "/createquiz" >
+      <input type="submit" value="Create a quiz">
+    </form>
+    <h2>Your results<h2>
+    <div class="quizzes-box"></div>
   </main>
 
 </body>
