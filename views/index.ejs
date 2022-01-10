@@ -22,14 +22,12 @@
     <div class="username">Welcome user</div>
     <div class="quiz-list">
       <% for(let quiz of quizzes) { %>
-        <% console.log({quiz}) %>
         <div class="quiz-box">
           <div class="quiz-title">
-            <% console.log(quiz.quizTitle) %>
-            <%= quiz.quizTitle %>
+            <%= quiz.title %>
           </div>
           <div class="quiz-description">
-            <%= quiz.quizDescription %>
+            <%= quiz.description %>
           </div>
         </div>
       <% } %>
