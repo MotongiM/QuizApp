@@ -14,8 +14,30 @@
 </head>
 
 <body>
-  <%- include('partials/_header') %>
+  <header>
+    <%- include('partials/_header') %>
+  </header>
   <h1>Have fun! 🥔</h1>
+  <main>
+    <div class="username">Welcome user</div>
+    <div class="quiz-list">
+      <% for(let quiz of publicQuizzes) { %>
+        <div class="quiz-box">
+          <div class="quiz-title">
+            <%= quiz.quizTitle %>
+          </div>
+          <div class="quiz-description">
+            <%= quiz.quizDescription %>
+          </div>
+        </div>
+
+
+
+    </div>
+    <div>Create a quiz</div>
+    <div>Create a quiz</div>
+  </main>
+
 </body>
 
 </html>
