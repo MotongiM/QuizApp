@@ -17,22 +17,14 @@
   <header>
     <%- include('partials/_header') %>
   </header>
+  <h1>Have fun! 🥔</h1>
   <main>
-    <h1 class="username">Welcome user 👋</h1>
-    <div class="quiz-list">
-      <% for(let quiz of quizzes) { %>
-        <div class="quiz-box">
-          <h2 class="quiz-title">
-            <%= quiz.title %>
-          </h2>
-          <div class="quiz-description">
-            <%= quiz.description %>
-          </div>
-        </div>
-      <% } %>
+    <h1>Quiz Maker</h1>
 
 
-    </div>
+    <form method="POST" action= "/createquiz" >
+      <input type="submit" value="Submit">
+    </form>
   </main>
 
 </body>

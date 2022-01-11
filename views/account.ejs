@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+</head>
+
+<body>
+  <header>
+    <%- include('partials/_header') %>
+  </header>
+  <h1>Have fun! 🥔</h1>
+  <main>
+    <h1 class="username">Welcome user</h1>
+    <% if (results.length !== 0) { %>
+      <h2>Your results</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Attempts</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let result of results) { %>
+
+              <tr>
+                <td><%= result %></td>
+                <td>
+                  <form method="GET" action= "/attemptid" >
+                    <input type="submit" value="Result">
+                </form>
+                </td>
+                <td>
+                  <form method="GET" action="/quiz_id_share>/">
+                    <input type ="submit" value="Share">
+                  </form>
+                </td>
+              </tr>
+          <% } %>
+        </tbody>
+      </table>
+    <% } %>
+    <form method="GET" action= "/createquiz" >
+      <input type="submit" value="Create a quiz">
+    </form>
+    <h2>Your results<h2>
+    <div class="quizzes-box"></div>
+  </main>
+
+</body>
+
+</html>
