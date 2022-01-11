@@ -41,8 +41,7 @@ module.exports = (db) => {
     ;`;
 
     const totalCount = `SELECT count(attempt_answers.id)
-    FROM answers
-    JOIN attempt_answers ON answers.id = attempt_answers.answer_id
+    FROM attempt_answers
     JOIN attempts ON attempts.id = attempt_answers.attempt_id
     WHERE attempts.user_id = $1
     GROUP BY attempts.id
@@ -52,11 +51,12 @@ module.exports = (db) => {
     db.query(correctCount, [req.params.id])
     .then( result => {
       // templateVars.correctCount = (result.rows[0].count);
-      templateVars.correctCount = [2,3,6];
+      console.log('correct count:', result.rows);
+      templateVars.correctCount = result.rows;
       db.query(totalCount, [req.params.id])
       .then(result => {
         // templateVars.totalCount = (result.rows[0].count);
-        templateVars.totalCount = [7,7,6]
+        templateVars.totalCount = result.rows;
         db.query(`SELECT quizzes.title
         FROM quizzes
         JOIN attempts ON attempts.quiz_id = quizzes.id

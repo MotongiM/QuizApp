@@ -17,9 +17,8 @@
   <header>
     <%- include('partials/_header') %>
   </header>
-  <h1>Have fun! 🥔</h1>
   <main>
-    <h1 class="username">Welcome user</h1>
+    <h1 class="username">Welcome user 👋</h1>
     <% if (correctCount.length !== 0) { %>
       <h2>Your results</h2>
       <table class="table">
@@ -34,7 +33,7 @@
           <% for(index in correctCount) { %>
 
               <tr>
-                <td><%= `Quiz name (${correctCount[index]}/${totalCount[index]})`%></td>
+                <td><%= `${quizNames[index].title} (${correctCount[index].count}/${totalCount[index].count})`%></td>
                 <td>
                   <form method="GET" action= "/attemptid" >
                     <input type="submit" value="Result">
