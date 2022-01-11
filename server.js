@@ -54,5 +54,5 @@ app.use("/",indexRoutes(db));
 //});
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
+  console.log(`👋 Quizapp listening on port ${PORT}`);
 });
