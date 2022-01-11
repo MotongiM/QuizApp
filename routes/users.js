@@ -57,15 +57,15 @@ module.exports = (db) => {
       .then(result => {
         // templateVars.totalCount = (result.rows[0].count);
         templateVars.totalCount = [7,7,6]
-        db.query(`SELECT quizzes.id, users.id as user_id,users.username AS users_name, Quizzes.title, Quizzes.description,public
-        FROM Quizzes
-        JOIN users ON quizzes.user_id = users.id
-        JOIN attempts ON users.id = attempts.user_id
-        WHERE users.id = $1
-        GROUP BY Quizzes.id, users.id, users.username,Quizzes.title,Quizzes.description,public;`, [req.params.id])
-        .then(user => {
-          templateVars.userData = user.rows;
+        db.query(`SELECT quizzes.title
+        FROM quizzes
+        JOIN attempts ON attempts.quiz_id = quizzes.id
+        WHERE attempts.user_id = $1
+        ORDER BY attempts.id;`, [req.params.id])
+        .then(result => {
+          templateVars.quizNames = result.rows;
           templateVars.user_id = req.params.id;
+          console.log('quiz names: ', result.rows);
           console.log({templateVars});
           res.render("../views/account", templateVars);
         })
