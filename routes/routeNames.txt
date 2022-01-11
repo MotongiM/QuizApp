@@ -1,4 +1,4 @@
-home: GET /
+home: GET / xx
 login: GET /login/:user_id (will redirect to home)
 myaccount: GET /:user_id
 result: GET /:user_id/:attempt_id
