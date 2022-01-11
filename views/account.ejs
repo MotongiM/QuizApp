@@ -20,7 +20,7 @@
   <h1>Have fun! 🥔</h1>
   <main>
     <h1 class="username">Welcome user</h1>
-    <% if (results.length !== 0) { %>
+    <% if (correctCount.length !== 0) { %>
       <h2>Your results</h2>
       <table class="table">
         <thead>
@@ -31,10 +31,10 @@
           </tr>
         </thead>
         <tbody>
-          <% for(let result of results) { %>
+          <% for(index in correctCount) { %>
 
               <tr>
-                <td><%= result %></td>
+                <td><%= `Quiz name (${correctCount[index]}/${totalCount[index]})`%></td>
                 <td>
                   <form method="GET" action= "/attemptid" >
                     <input type="submit" value="Result">
