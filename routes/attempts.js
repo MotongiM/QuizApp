@@ -24,7 +24,7 @@ module.exports = (db) => {
         .json({ error: error.message });
     });
   })
-g
+
 
   //Inserting data into database
   router.post('/:quiz_id/results/:user_id' ,(req,res) => {
