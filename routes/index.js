@@ -13,6 +13,9 @@ module.exports = (db) => {
       const templateVars = {quizzes: data.rows, user_id:1};
       res.render('../views/index.ejs', templateVars);
     })
+    .catch(err => {
+      err.message;
+    })
 
   });
   return router;

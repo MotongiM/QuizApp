@@ -52,8 +52,25 @@
     <form method="GET" action= "/createquiz" >
       <input type="submit" value="Create a quiz">
     </form>
-    <h2>Your results<h2>
-    <div class="quizzes-box"></div>
+    <h2>Your quizzes 💯<h2>
+      <div class="quiz-list">
+        <% for(let quiz of quizzes) { %>
+          <div class="quiz-area">
+            <div class="quiz-box">
+              <h2 class="quiz-title">
+                <%= quiz.title %>
+              </h2>
+              <div class="quiz-description">
+                <%= quiz.description %>
+              </div>
+            </div>
+              <form class="quiz-buttons">
+                <button>Attempt</button>
+                <button>Share</button>
+              </form>
+          </div>
+        <% } %>
+      </div>
   </main>
 
 </body>
