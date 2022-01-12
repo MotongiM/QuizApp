@@ -25,11 +25,9 @@ module.exports = (db) => {
     });
   })
 
+
   //Inserting data into database
-  const query = `INSERT INTO quizzes ( title, description,public)
-  VALUES (2$,3$,4$) RETURNING id`;
-const values = [req.body.title, req.body.description, req.body.public];
-  router.post('/' ,(req,res) => {
+  router.post('/:quiz_id/results/:user_id' ,(req,res) => {
     const query = `INSERT INTO attempts (quiz_id, user_id)
                   VALUES ($1, $2)
                   RETURNING *;`
@@ -37,7 +35,30 @@ const values = [req.body.title, req.body.description, req.body.public];
     const values = [req.params.quiz_id, req.params.user_id]
 
     db.query(query,values)
-      .then
+      .then((data) => {
+        const questions = Object.keys(req.body);
+        const text = `INSERT INTO attempt_answers (answer_id, user_id, attempt_id,question_id) VALUES `
+        for (let question of questions) {
+          if (questions.indexOf(question) === (questions.length - 1)) {
+            text += `(${req.body[question]}, ${req.params.user_id}, ${data.rows[0].id}, ${question}) RETURNING *;`
+          } else {
+            text += `(${req.body[question]}, ${req.params.user_id}, ${data.rows[0].id}, ${question}) `;
+
+          }
+        }
+        db.query(text)
+        return data.rows[0].id;
+      })
+      .then(id => {
+        res.redirect(`/attempts/${id}/results`)
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
   })
 
-}
+  return router;
+
+};
