@@ -14,3 +14,10 @@ module.exports = (db) => {
 
   return router;
 };
+
+//submit quiz
+router.post('/', (req, res) => {
+  const templateVars = {user_id: req.params.user_id};
+  console.log(req.body);
+  res.render('createQuiz', templateVars);
+})
