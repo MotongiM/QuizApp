@@ -33,30 +33,34 @@ $(() => {
  const createTweetElement = (questionNumber) => {
 
   const $tweet = $(
-    `<label for="quiz-question-${questionNumber}">
-    Question #${questionNumber}
-  </label>
-  <input type="text" id="quiz-question-${questionNumber}">
+    `  <div class="question-box">
 
-  <label for="quiz-answer-correct-${questionNumber}">
-    Correct answer
-  </label>
-  <input type="text" id="quiz-answer-correct-${questionNumber}">
+    <label for="quiz-question-${questionNumber}">
+      Question #${questionNumber}
+    </label>
+    <input required="required" type="text" id="quiz-question-${questionNumber}" name="question${questionNumber}">
 
-  <label for="quiz-answer-incorrect-${questionNumber}-A">
-    Incorrect answer
-  </label>
-  <input type="text" id="quiz-answer-incorrect-${questionNumber}-A">
+    <label for="quiz-answer-correct-${questionNumber}">
+      Correct answer
+    </label>
+    <input required="required" type="text" id="quiz-answer-correct-${questionNumber}" name ="answerCorrect${questionNumber}">
 
-  <label for="quiz-answer-incorrect-${questionNumber}-B">
-    Incorrect answer
-  </label>
-  <input type="text" id="quiz-answer-incorrect-${questionNumber}-B">
+    <label for="quiz-answer-incorrect-${questionNumber}-A">
+      Incorrect answer
+    </label>
+    <input required="required" type="text" id="quiz-answer-incorrect-${questionNumber}-A" name="answerIncorrect${questionNumber}">
 
-  <label for="quiz-answer-incorrect-${questionNumber}-C">
-    Incorrect answer
-  </label>
-  <input type="text" id="quiz-answer-incorrect-${questionNumber}-C">`
+    <label for="quiz-answer-incorrect-${questionNumber}-B">
+      Incorrect answer
+    </label>
+    <input required="required" type="text" id="quiz-answer-incorrect-${questionNumber}-B" name="answerIncorrect${questionNumber}">
+
+    <label for="quiz-answer-incorrect-${questionNumber}-C">
+      Incorrect answer
+    </label>
+    <input required="required" type="text" id="quiz-answer-incorrect-${questionNumber}-C" name="answerIncorrect${questionNumber}">
+
+  </div>`
   )
 
   return $tweet;

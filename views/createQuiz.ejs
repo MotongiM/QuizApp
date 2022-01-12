@@ -26,52 +26,56 @@
       <label for="quiz-title">
         Quiz title
       </label>
-      <input type="text" id="quiz-title" name="title">
+      <input type="text" id="quiz-title" name="title" required="required">
       <label for="quiz-description">
         Quiz description
       </label>
-      <input type="text" id="quiz-description" name="description">
+      <input type="text" id="quiz-description" name="description" required="required">
 
 <div id="questions-container">
 
-      <label for="quiz-question-1">
-        Question #1
-      </label>
-      <input type="text" id="quiz-question-1" name="question1">
+  <div class="question-box">
 
-      <label for="quiz-answer-correct-1">
-        Correct answer
-      </label>
-      <input type="text" id="quiz-answer-correct-1" name ="answerCorrect1">
+    <label for="quiz-question-1">
+      Question #1
+    </label>
+    <input type="text" id="quiz-question-1" name="question1" required="required">
 
-      <label for="quiz-answer-incorrect-1-A">
-        Incorrect answer
-      </label>
-      <input type="text" id="quiz-answer-incorrect-1-A" name="answerIncorrect1">
+    <label for="quiz-answer-correct-1">
+      Correct answer
+    </label>
+    <input required="required" type="text" id="quiz-answer-correct-1" name ="answerCorrect1">
 
-      <label for="quiz-answer-incorrect-1-B">
-        Incorrect answer
-      </label>
-      <input type="text" id="quiz-answer-incorrect-1-B" name="answerIncorrect1">
+    <label for="quiz-answer-incorrect-1-A">
+      Incorrect answer
+    </label>
+    <input required="required" type="text" id="quiz-answer-incorrect-1-A" name="answerIncorrect1">
 
-      <label for="quiz-answer-incorrect-1-C">
-        Incorrect answer
-      </label>
-      <input type="text" id="quiz-answer-incorrect-1-C" name="answerIncorrect1">
+    <label for="quiz-answer-incorrect-1-B">
+      Incorrect answer
+    </label>
+    <input required="required" type="text" id="quiz-answer-incorrect-1-B" name="answerIncorrect1">
+
+    <label for="quiz-answer-incorrect-1-C">
+      Incorrect answer
+    </label>
+    <input required="required" type="text" id="quiz-answer-incorrect-1-C" name="answerIncorrect1">
+
+  </div>
 
     </div>
 
 
 
-      <input type="button" value="Add question" id="new-question">
+      <input required="required" type="button" value="Add question" id="new-question">
       <legend>
         Make your quiz public or private
       </legend>
-        <input type="radio" name="listing" id="public" value="public">
+        <input required="required" type="radio" name="listing" id="public" value="public">
         <label for="public">Public</label>
-        <input type="radio" name="listing" id="private" value="private">
+        <input required="required" type="radio" name="listing" id="private" value="private">
         <label for="private">Private</label>
-      <input type="submit" value="Submit">
+      <input required="required" type="submit" value="Submit">
     </form>
   </main>
 
