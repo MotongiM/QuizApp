@@ -2,7 +2,7 @@ INSERT INTO questions (quiz_id, question)
 VALUES
 (1, 'Which event happened in 1910?'),
 (1, 'Which event happened in 1911?'),
-(1, 'Which event happened in 1911?'),
+(1, 'Which event happened in 1912?'),
 (1, 'Which event happened in 1913?'),
 (1, 'Which event happened in 1914?'),
 (2, 'Which event happened in 1920?'),
