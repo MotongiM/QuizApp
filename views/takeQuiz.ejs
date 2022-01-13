@@ -15,7 +15,7 @@
 
 <body>
   <header>
-    <%- include('partials/_header') %>
+    <%- include("partials/_header') %>
   </header>
   <h1>Have fun! 🥔</h1>
   <main>
@@ -23,11 +23,23 @@
 
 
     <form method="POST" action= "/submitattempt" >
-      <% for (let question in questions) { %>
-      <fieldset>
-        <legend>
-          <%= question.question %>
-        </legend>
+      <% const string = ""; %>
+      <% for (let data in quizInput) { %>
+          if (data.question === string) { %>
+            <div class="answers">
+              <input type="radio" name="<%= data.question_id%>" value="<%= data.id%>"><%= data.answer %></input>
+            </div>
+            <% } else { %>
+              <% string = data.question %>
+              <h3 class="question"><%= string %></h3>
+            <div class="answers">
+              <input type="radio" name="<%= data.question_id%>" value="<%= data.id%>"><%= data.answer %></input>
+            </div>
+            <% } %>
+            <% } %>
+            <button class="btn-primary" type="submit"> Submit Quiz</button>
+
+
         <p>
           <input type="radio" name="size" id="size_1" value="small">
           <label for="size_1">Small</label>
@@ -40,7 +52,6 @@
           <input type="radio" name="size" id="size_3" value="large">
           <label for="size_3">Large</label>
         </p>
-      </fieldset>
       <input type="submit" value="Submit">
     </form>
   </main>
