@@ -11,48 +11,49 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/createQuiz.js"></script>
 </head>
 
 <body>
   <header>
-    <%- include("partials/_header') %>
+    <%- include('partials/_header') %>
   </header>
-  <h1>Have fun! 🥔</h1>
   <main>
-    <h1>Quiz Maker</h1>
+    <h1>
+      <%= title %>
+      🧾
+    </h1>
+    <h2>
+      <%= description %>
+    </h2>
+    <button>Share quiz
+    </button>
+    <h2>Attempt the quiz:</h2>
+    <% console.log(id) %>
 
+    <form method="POST" action= "/quiz/<%= id %>">
+      <div id="questions-container">
+        <% for (question of questions) { %>
+          <fieldset class="question-box">
+            <legend>
+              <%= question.question %>
+            </legend>
+            <% for (answer of question.answers) {%>
+              <input
+                type = 'radio'
+                id='<%= answer.id %>'
+                value='<%= answer.id %>'
+                name='<%= question.id %>'
+              ><label
+                for='<%= answer.id %>'
+              ><%= answer.answer %>
+              </label>
+              <% } %>
+          </fieldset>
+        <% } %>
+      </div>
 
-    <form method="POST" action= "/submitattempt" >
-      <% const string = ""; %>
-      <% for (let data in quizInput) { %>
-          if (data.question === string) { %>
-            <div class="answers">
-              <input type="radio" name="<%= data.question_id%>" value="<%= data.id%>"><%= data.answer %></input>
-            </div>
-            <% } else { %>
-              <% string = data.question %>
-              <h3 class="question"><%= string %></h3>
-            <div class="answers">
-              <input type="radio" name="<%= data.question_id%>" value="<%= data.id%>"><%= data.answer %></input>
-            </div>
-            <% } %>
-            <% } %>
-            <button class="btn-primary" type="submit"> Submit Quiz</button>
-
-
-        <p>
-          <input type="radio" name="size" id="size_1" value="small">
-          <label for="size_1">Small</label>
-        </p>
-        <p>
-          <input type="radio" name="size" id="size_2" value="medium">
-          <label for="size_2">Medium</label>
-        </p>
-        <p>
-          <input type="radio" name="size" id="size_3" value="large">
-          <label for="size_3">Large</label>
-        </p>
-      <input type="submit" value="Submit">
+      <input required="required" type="submit" value="Submit">
     </form>
   </main>
 

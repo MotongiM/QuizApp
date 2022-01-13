@@ -64,6 +64,13 @@ module.exports = (db) => {
                 }})}})})
         .catch(err => err.message)
   });
+  router.post('/:quizid', (req, res) => {
+    // res.json(res)
+    const attemptValues = Object.entries(req.body)
+    console.log(attemptValues)
+
+    res.redirect('/')
+  });
 
   return router;
 };
