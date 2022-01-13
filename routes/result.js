@@ -6,17 +6,17 @@ module.exports = (db) => {
   //result page
 
   router.get('/:attempts/results', (req,res) => {
-    db.query(`SELECT attempt_answers.id,answers.answer,questions.question,correct_answer,attempts_id,attempt.user_id
+    db.query(`SELECT attempt_answers.id,answers.answer,questions.question,correct_answer,attempt_id,attempts.user_id
     FROM attempts
     JOIN attempt_answers ON attempts.id = attempt_id
     JOIN answers ON answers.id = answer_id
-    JOIN quizzes ON attempt.quiz_id = quizzes.id
+    JOIN quizzes ON attempts.quiz_id = quizzes.id
     JOIN questions ON questions.id = answers.question_id
     WHERE attempts.id = $1
     ORDER BY id;`, [1])
     .then (data => {
       const templateVars = {attempts: data.rows}
-      res.render('../views/results',templateVars);
+      res.render('../views/result',templateVars);
     })
     .catch(error => {
       res

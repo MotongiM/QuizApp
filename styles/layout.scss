@@ -30,11 +30,15 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
   width: 80%;
+  margin-inline: 10%;
+}
+.quiz-area {
+  width: 40%;
+  margin-block: 5%;
 }
 .quiz-box {
-  width: 40%;
-  background-color: green;
-  margin-block: 5%;
+  background: rgb(131,58,180);
+  background: linear-gradient(306deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
   padding: 5%;
       padding-top: 0%;
   display: flex;
@@ -43,7 +47,23 @@ main {
   justify-content: flex-start;
   text-align: center;
 }
+.quiz-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.quiz-buttons button {
+  width: 40%;
+  background: red;
+}
+
+
 form {
+  display: flex;
+  flex-direction: column;
+}
+
+#questions-container {
   display: flex;
   flex-direction: column;
 }

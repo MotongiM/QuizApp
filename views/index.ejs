@@ -21,13 +21,19 @@
     <h1 class="username">Welcome user 👋</h1>
     <div class="quiz-list">
       <% for(let quiz of quizzes) { %>
-        <div class="quiz-box">
-          <h2 class="quiz-title">
-            <%= quiz.title %>
-          </h2>
-          <div class="quiz-description">
-            <%= quiz.description %>
+        <div class="quiz-area">
+          <div class="quiz-box">
+            <h2 class="quiz-title">
+              <%= quiz.title %>
+            </h2>
+            <div class="quiz-description">
+              <%= quiz.description %>
+            </div>
           </div>
+            <form class="quiz-buttons">
+              <button>Attempt</button>
+              <button>Share</button>
+            </form>
         </div>
       <% } %>
 

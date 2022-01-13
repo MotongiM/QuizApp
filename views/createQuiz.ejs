@@ -11,60 +11,66 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/createQuiz.js"></script>
 </head>
 
 <body>
   <header>
     <%- include('partials/_header') %>
   </header>
-  <h1>Have fun! 🥔</h1>
   <main>
-    <h1>Quiz Maker</h1>
+    <h1>Create your quiz: 🔎</h1>
 
 
-    <form method="POST" action= "/createquiz" >
+    <form method="POST" action= "/create" >
       <label for="quiz-title">
         Quiz title
       </label>
-      <input type="text" id="quiz-title">
+      <input type="text" id="quiz-title" name="title">
       <label for="quiz-description">
         Quiz description
       </label>
-      <input type="text" id="quiz-description">
+      <input type="text" id="quiz-description" name="description">
+
+<div id="questions-container">
 
       <label for="quiz-question-1">
         Question #1
       </label>
-      <input type="text" id="quiz-question-1">
+      <input type="text" id="quiz-question-1" name="question1">
 
       <label for="quiz-answer-correct-1">
         Correct answer
       </label>
-      <input type="text" id="quiz-answer-correct-1">
+      <input type="text" id="quiz-answer-correct-1" name ="answerCorrect1">
 
       <label for="quiz-answer-incorrect-1-A">
         Incorrect answer
       </label>
-      <input type="text" id="quiz-answer-incorrect-1-A">
+      <input type="text" id="quiz-answer-incorrect-1-A" name="answerIncorrect1">
 
       <label for="quiz-answer-incorrect-1-B">
         Incorrect answer
       </label>
-      <input type="text" id="quiz-answer-incorrect-1-B">
+      <input type="text" id="quiz-answer-incorrect-1-B" name="answerIncorrect1">
 
       <label for="quiz-answer-incorrect-1-C">
         Incorrect answer
       </label>
-      <input type="text" id="quiz-answer-incorrect-1-C">
+      <input type="text" id="quiz-answer-incorrect-1-C" name="answerIncorrect1">
 
-      <input type="button" value="Add question">
+    </div>
+
+
+
+      <input type="button" value="Add question" id="new-question">
       <legend>
         Make your quiz public or private
       </legend>
-        <input type="radio" name="size" id="size_1" value="small">
-        <label for="size_1">Public</label>
-        <input type="radio" name="size" id="size_2" value="medium">
-        <label for="size_2">Private</label>
+        <input type="radio" name="listing" id="public" value="public">
+        <label for="public">Public</label>
+        <input type="radio" name="listing" id="private" value="private">
+        <label for="private">Private</label>
       <input type="submit" value="Submit">
     </form>
   </main>

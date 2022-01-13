@@ -50,13 +50,12 @@ module.exports = (db) => {
 
     db.query(correctCount, [req.params.id])
     .then( result => {
-      // templateVars.correctCount = (result.rows[0].count);
-      console.log('correct count:', result.rows);
       templateVars.correctCount = result.rows;
+
       db.query(totalCount, [req.params.id])
       .then(result => {
-        // templateVars.totalCount = (result.rows[0].count);
         templateVars.totalCount = result.rows;
+
         db.query(`SELECT quizzes.title
         FROM quizzes
         JOIN attempts ON attempts.quiz_id = quizzes.id
@@ -65,9 +64,15 @@ module.exports = (db) => {
         .then(result => {
           templateVars.quizNames = result.rows;
           templateVars.user_id = req.params.id;
-          console.log('quiz names: ', result.rows);
-          console.log({templateVars});
-          res.render("../views/account", templateVars);
+
+          db.query(`SELECT title, description
+          FROM quizzes
+          WHERE user_id =  $1`, [req.params.id])
+          .then(result => {
+            templateVars.quizzes = result.rows;
+            console.log({templateVars});
+            res.render("../views/account", templateVars);
+          })
         })
       })
       })
