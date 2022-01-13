@@ -64,13 +64,33 @@ module.exports = (db) => {
                 }})}})})
         .catch(err => err.message)
   });
-  router.post('/:quizid', (req, res) => {
-    // res.json(res)
-    const attemptValues = Object.entries(req.body)
-    console.log(attemptValues)
 
-    res.redirect('/')
-  });
+  //POST quiz attempt
+
+  router.post('/:quizid', (req, res) => {
+    const attemptValues = [req.params.quizid, null];
+    db.query(`INSERT INTO attempts (quiz_id, user_id)
+    VALUES ($1, $2)
+    RETURNING id`, attemptValues)
+    .then((query) => {
+      let counter = 0;
+      for (const [questionId, answerId] of Object.entries(req.body)) {
+        counter ++;
+        const attemptAnswerValues = [Number(query.rows[0].id), Number(answerId)]
+        db.query(`INSERT INTO attempt_answers (attempt_id, answer_id)
+        VALUES ($1, $2)`, attemptAnswerValues)
+        .then(() => {
+          if (counter === Object.keys(req.body).length) {
+            counter = 0;
+            res.redirect('/')
+          }
+        })
+      }
+    }
+    )
+    .catch(err => err.message);
+
+  })
 
   return router;
 };
