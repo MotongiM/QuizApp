@@ -8,7 +8,7 @@ module.exports = (db) => {
   router.get('/:quizid', (req, res) => {
     db.query(`SELECT user_id, question_id, quizzes.title,questions.question, answers.answer, quiz_id, answers.correct_answer
               FROM answers
-              JOIN questions ON questions.id = answer.question_id
+              JOIN questions ON questions.id = answers.question_id
               JOIN quizzes ON quizzes.id = questions.quiz_id
               JOIN users ON user_id = users.id
               WHERE quiz_id = $1
