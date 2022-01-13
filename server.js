@@ -38,7 +38,7 @@ app.use(express.static("public"));
 const usersRoutes = require("./routes/account");
 const widgetsRoutes = require("./routes/widgets");
 const indexRoutes = require("./routes/index");
-const createQuizRoutes = require("./routes/test");
+const createQuizRoutes = require("./routes/createQuiz");
 const resultRoutes = require("./routes/result");
 const quizRoutes = require("./routes/quizzes")
 // Mount all resource routes
