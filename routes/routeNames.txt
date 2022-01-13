@@ -2,7 +2,7 @@ home: GET / FINI
 login: GET /login/:user_id (will redirect to home) A FAIRE
 myaccount: GET /:user_id IN PROCESS ADRIAN
 result: GET /:user_id/:attempt_id A FAIRE
-quiz: GET /:quiz_id A FAIRE
+quiz: GET /:quiz_id IN PROCESS
   on submit POST /:attempt_id A FAIRE
 create quiz: GET /create IN PROCESS ADRIAN
   on submit POST /:quiz_id IN PROCESS MICHEL (ROUTE)/ADRIAN (JQUERY)
