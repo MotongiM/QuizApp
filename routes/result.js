@@ -9,7 +9,7 @@ module.exports = (db) => {
   // })
   //result page
 
-  router.get('/:attempt_id/result', (req,res) => {
+  router.get('/:attempt_id/', (req,res) => {
     const attemptsId = req.params.attempt_id;
     db.query(`SELECT attempt_answers.id,answers.answer,questions.question,correct_answer,attempt_id,attempts.user_id,quizzes.title
     FROM attempts

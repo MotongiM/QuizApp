@@ -19,17 +19,17 @@
   <h1>Have fun! 🥔</h1>
     <div class='container'>
       <div class= 'results'>
-    <h1>Your Results</h1>
-    <h2></h2>
+    <h3>Your Results!</h1>
+    <h4><%= attempts[0].title%> </h2>
     <div class='answer-result'>
       <% for (let answer of attempts) { %>
-        <span class='question_results'> Question: <%= answer.question %> </span>
+        <span class='question-results'> Question: <%= answer.question %> </span>
         <span class='users-answer'> Your Answer: <%= answer.answer %></span>
         <% if (answer.correct_answer === true) { %>
         <span class='true'>CORRECT</span>
         <br>
         <% } else { %>
-        <span clas='false'>WRONG</span>
+        <span class='false'>WRONG</span>
       <br>
     <% } %>
   <% } %>
