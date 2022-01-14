@@ -58,27 +58,32 @@ main {
   width: 40%;
   background: red;
 }
-
-
-form {
+.text {
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
 }
-
-#questions-container {
+.create {
+  background: rgb(131,58,180);
+  background: linear-gradient(306deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  padding: 5%;
+      padding-top: 0%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
 }
-.question-box {
-  display: flex;
+.adding {
+  display:flex;
   flex-direction: column;
-}
-h3 {
-  color: black;
+  margin-block: 1em;
+  align-items:center;
 }
 .quiz-redirect {
   background-color: rgb(131,58,180);
-  color :black;
+  background: linear-gradient(306deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  color :white;
   margin-top: 10px;
   border: 1px solid black;
   box-sizing: border-box;
@@ -86,41 +91,62 @@ h3 {
   flex-direction: column;
   align-items: center;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+}
+
+#questions-container {
+  display: flex;
+  flex-direction: column;
+}
+legend {
+  display:flex;
+  flex-direction: center;
+  padding-top: 1em;
+}
+.question-box {
+  background: rgb(131,58,180);
+  background: linear-gradient(306deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top:1em;
+
+}
+h3 {
+  color: black;
+}
 .results {
   border-radius: 5px;
-  margin-top: 30px;
+  margin-top: 20px;
   padding: 30px;
-  display:flex;
-  flex-direction: column;
-  align-items:center;
-  border: 1px solid black;
-  box-sizing: border-box;
-  .answer-result {
-    display:flex;
-    flex-direction: column;
-    border: 3px solid whitesmoke;
-    padding: 10px;
-    .question-result {
-      font-size: 1.5rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-    .users-answer {
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-    .true {
-      background-color:green;
-      width: 5.2rem;
-      padding: 3px;
-      border-radius: 3px;
-    }
-    .false {
-      background-color: red;
-      width: 4.2rem;
-      padding:3px;
-      border: radius 3px;
-    }
-  }
 
+      .question-result {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .users-answer {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+      .true {
+        background-color:green;
+        width: 5.2rem;
+        padding: 3px;
+        border-radius: 3px;
+      }
+      .false {
+        background-color: rgb(23, 23, 68);
+        width: 4.2rem;
+        padding:3px;
+        border: radius 3px;
+      }
 }

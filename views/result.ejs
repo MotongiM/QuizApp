@@ -16,14 +16,15 @@
   <header>
     <%- include('partials/_header') %>
   </header>
-  <h1>Have fun! 🥔</h1>
+  <main></main>
     <div class='container'>
       <div class= 'results'>
     <h3>Your Results!</h1>
     <p>Share your result with this link: localhost:8080/result/<%= attempts[0].attempt_id %></p>
     <h4><%= attempts[0].title%> </h2>
-    <div class='answer-result'>
+    <div class='question-container'>
       <% for (let answer of attempts) { %>
+        <fieldset class='question-box'>
         <span class='question-results'> Question: <%= answer.question %> </span>
         <span class='users-answer'> Your Answer: <%= answer.answer %></span>
         <% if (answer.correct_answer === true) { %>
@@ -31,8 +32,9 @@
         <br>
         <% } else { %>
         <span class='false'>WRONG</span>
-      <br>
+        <br>
     <% } %>
+        </fieldset>
   <% } %>
 
 
@@ -43,5 +45,6 @@
   <a href="/"><div class= 'quiz-redirect'> Take another Quiz!</div></a>
 </div>
 </body>
+</main>
 
 </html>
