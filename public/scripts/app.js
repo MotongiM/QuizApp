@@ -6,4 +6,5 @@ $(() => {
   console.log(document.cookie);
   $(document).cookie ? $login.replaceWith(`<span>No cookies</span>`) : $login.replaceWith(`<span>${document.cookie}</span>`);
 
+
 })
