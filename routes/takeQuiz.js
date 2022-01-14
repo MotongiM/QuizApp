@@ -81,7 +81,7 @@ module.exports = (db) => {
         .then(() => {
           if (counter === Object.keys(req.body).length) {
             counter = 0;
-            res.redirect('/')
+            res.redirect(`/result/${attemptAnswerValues[0]}`)
           }
         })
       }

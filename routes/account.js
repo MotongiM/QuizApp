@@ -51,7 +51,7 @@ module.exports = (db) => {
           templateVars.quizNames = result.rows;
           templateVars.user_id = req.cookies.user_id;
 
-          db.query(`SELECT title, description
+          db.query(`SELECT title, description, id
           FROM quizzes
           WHERE user_id =  $1`, [req.cookies.user_id])
           .then(result => {
