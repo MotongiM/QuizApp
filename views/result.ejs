@@ -20,6 +20,7 @@
     <div class='container'>
       <div class= 'results'>
     <h3>Your Results!</h1>
+    <p>Share your result with this link: localhost:8080/result/<%= attempts[0].attempt_id %></p>
     <h4><%= attempts[0].title%> </h2>
     <div class='answer-result'>
       <% for (let answer of attempts) { %>
@@ -38,9 +39,6 @@
     </div>
   </div>
   <div>
-    <form method="GET" action="/quiz_id_share>/">
-      <input type ="submit" value="Share">
-    </form>
   </div>
   <a href="/"><div class= 'quiz-redirect'> Take another Quiz!</div></a>
 </div>
