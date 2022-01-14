@@ -59,7 +59,6 @@ module.exports = (db) => {
               .then(() => {
                 quizData.questions.push(questionData);
                 if (quizData.questions.length === query.rows.length) {
-                  console.log('last');
                   res.render('takeQuiz', quizData);
                 }})}})})
         .catch(err => err.message)
@@ -68,7 +67,7 @@ module.exports = (db) => {
   //POST quiz attempt
 
   router.post('/:quizid', (req, res) => {
-    const attemptValues = [req.params.quizid, null];
+    const attemptValues = [req.params.quizid, req.cookies.user_id || null];
     db.query(`INSERT INTO attempts (quiz_id, user_id)
     VALUES ($1, $2)
     RETURNING id`, attemptValues)
