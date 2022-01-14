@@ -41,12 +41,13 @@ module.exports = (db) => {
       .then(result => {
         templateVars.totalCount = result.rows;
 
-        db.query(`SELECT quizzes.title
+        db.query(`SELECT quizzes.title, attempts.id
         FROM quizzes
         JOIN attempts ON attempts.quiz_id = quizzes.id
         WHERE attempts.user_id = $1
         ORDER BY attempts.id;`, [req.cookies.user_id])
         .then(result => {
+          console.log(result.rows);
           templateVars.quizNames = result.rows;
           templateVars.user_id = req.cookies.user_id;
 
@@ -55,7 +56,7 @@ module.exports = (db) => {
           WHERE user_id =  $1`, [req.cookies.user_id])
           .then(result => {
             templateVars.quizzes = result.rows;
-            console.log({templateVars});
+            // console.log({templateVars});
             res.render("../views/account", templateVars);
           })
         })

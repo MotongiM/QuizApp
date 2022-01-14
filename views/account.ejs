@@ -35,7 +35,7 @@
               <tr>
                 <td><%= `${quizNames[index].title} (${correctCount[index].count}/${totalCount[index].count})`%></td>
                 <td>
-                  <form method="GET" action= "/attemptid" >
+                  <form method="GET" action= "/result/<%=quizNames[index].id%>/" >
                     <input type="submit" value="Result">
                 </form>
                 </td>
@@ -49,7 +49,7 @@
         </tbody>
       </table>
     <% } %>
-    <form method="GET" action= "/createquiz" >
+    <form method="GET" action= "/create/" >
       <input type="submit" value="Create a quiz">
     </form>
     <h2>Your quizzes 💯<h2>
