@@ -10,24 +10,9 @@ const router  = express.Router();
 
 module.exports = (db) => {
 
-  //Test
-
-  router.get('/', (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then(data => {
-        const users = data.rows;
-        res.json({ users });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
-
   //Account Page where they can see the quizzes they created
 
-  router.get('/:id',(req,res) => {
+  router.get('/',(req,res) => {
     const templateVars = {};
 
     const correctCount = `SELECT count(attempt_answers.id)
@@ -48,11 +33,11 @@ module.exports = (db) => {
     ORDER BY attempts.id
     ;`;
 
-    db.query(correctCount, [req.params.id])
+    db.query(correctCount, [req.cookies.user_id])
     .then( result => {
       templateVars.correctCount = result.rows;
 
-      db.query(totalCount, [req.params.id])
+      db.query(totalCount, [req.cookies.user_id])
       .then(result => {
         templateVars.totalCount = result.rows;
 
@@ -60,14 +45,14 @@ module.exports = (db) => {
         FROM quizzes
         JOIN attempts ON attempts.quiz_id = quizzes.id
         WHERE attempts.user_id = $1
-        ORDER BY attempts.id;`, [req.params.id])
+        ORDER BY attempts.id;`, [req.cookies.user_id])
         .then(result => {
           templateVars.quizNames = result.rows;
-          templateVars.user_id = req.params.id;
+          templateVars.user_id = req.cookies.user_id;
 
           db.query(`SELECT title, description
           FROM quizzes
-          WHERE user_id =  $1`, [req.params.id])
+          WHERE user_id =  $1`, [req.cookies.user_id])
           .then(result => {
             templateVars.quizzes = result.rows;
             console.log({templateVars});
@@ -76,23 +61,6 @@ module.exports = (db) => {
         })
       })
       })
-  });
-
-  //POST a new quiz to the database
-
-  router.post('/user_id/createquiz',(req,res) => {
-    const query = `INSERT INTO quizzes (user_id, title, description,public)
-                 VALUES ($1,$2,$3,$4) RETURNING id`;
-    const values = [req.params.user_id, req.body.title, req.body.description, req.body.public];
-    db.query(query,values)
-      .then(data => {
-        const quiz = data.rows;
-        const quiz_id = data.rows[0].id;
-        res.redirect(`/quiz/${quiz_id}/Questions`)
-      })
-      .catch(err => {
-        res.send(`Please complete the form first.`)
-      });
   });
 
   //POST delete a new quiz

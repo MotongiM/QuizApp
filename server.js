@@ -46,7 +46,7 @@ const quizRoutes = require("./routes/takeQuiz")
 const loginRoutes = require("./routes/login")
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
+app.use("/user", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/",indexRoutes(db));
 app.use("/create",createQuizRoutes(db));
