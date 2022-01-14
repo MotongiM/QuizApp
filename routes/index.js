@@ -6,7 +6,8 @@ module.exports = (db) => {
 
   //Homepage of quizApp to see public quizzes
 
-  router.get('/', (req, res) => {``
+  router.get('/', (req, res) => {
+    console.log(res.cookie);
     db.query(`SELECT * FROM quizzes WHERE public = TRUE;
     `)
     .then(data => {
