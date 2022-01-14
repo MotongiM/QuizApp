@@ -71,3 +71,43 @@ form {
   display: flex;
   flex-direction: column;
 }
+h3 {
+  color: black;
+}
+.results {
+  border-radius: 5px;
+  margin-top: 30px;
+  padding: 30px;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  border: 1px solid black;
+  box-sizing: border-box;
+  .answer-result {
+    display:flex;
+    flex-direction: column;
+    border: 3px solid whitesmoke;
+    padding: 10px;
+    .question-result {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .users-answer {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    .true {
+      background-color:green;
+      width: 5.2rem;
+      padding: 3px;
+      border-radius: 3px;
+    }
+    .false {
+      background-color: red;
+      width: 4.2rem;
+      padding:3px;
+      border: radius 3px;
+    }
+  }
+}
