@@ -12,13 +12,10 @@ module.exports = (db) => {
       res.render('../views/createQuiz.ejs', templateVars);
     })
 
-  return router;
-};
-
 //submit quiz
 router.post('/', (req, res) => {
-  console.log(req.body.rows);
-  const quizData = req.body.rows;
+  console.log(req.body);
+  const quizData = req.body;
 
       //we must first convert our form data to a more queriable format:
 
@@ -27,7 +24,7 @@ router.post('/', (req, res) => {
         description: quizData.description,
         questions: [],
         public: Boolean(quizData.public),
-        userId: null
+        userId: req.cookies.user_id || null
       };
 
       // format for quizDataConverted.questions:
@@ -112,3 +109,7 @@ router.post('/', (req, res) => {
         })
         .catch(err => err.message);
 })
+
+return router;
+
+};
