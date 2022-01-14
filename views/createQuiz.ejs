@@ -19,18 +19,22 @@
     <%- include('partials/_header') %>
   </header>
   <main>
+
     <h1>Create your quiz: 🔎</h1>
 
-
     <form method="POST" action= "/create" >
+      <div class="text">
       <label for="quiz-title">
         Quiz title
       </label>
+    </div>
+    <div class="text">
       <input type="text" id="quiz-title" name="title" required="required">
       <label for="quiz-description">
         Quiz description
       </label>
       <input type="text" id="quiz-description" name="description" required="required">
+    </div>
 
 <div id="questions-container">
 
@@ -66,16 +70,19 @@
     </div>
 
 
-
+      <span class="adding">
       <input required="required" type="button" value="Add question" id="new-question">
+      </span>
       <legend>
         Make your quiz public or private
       </legend>
+      <fieldset>
         <input required="required" type="radio" name="public" id="public" value="true">
         <label for="public">Public</label>
         <input required="required" type="radio" name="public" id="private" value="false">
         <label for="private">Private</label>
-      <input required="required" type="submit" value="Submit">
+      </fieldset>
+      <input required="required" class="quiz-redirect" type="submit" value="Submit">
     </form>
   </main>
 
