@@ -9,16 +9,16 @@ module.exports = (db) => {
   // })
   //result page
 
-  router.get('/:quizId/result', (req,res) => {
-    const quizId = req.params.quizId;
+  router.get('/:attempt_id/result', (req,res) => {
+    const attemptsId = req.params.attempt_id;
     db.query(`SELECT attempt_answers.id,answers.answer,questions.question,correct_answer,attempt_id,attempts.user_id,quizzes.title
     FROM attempts
     JOIN attempt_answers ON attempts.id = attempt_id
     JOIN answers ON answers.id = answer_id
     JOIN quizzes ON attempts.quiz_id = quizzes.id
     JOIN questions ON questions.id = answers.question_id
-    WHERE quizzes.id = $1
-    ORDER BY quizzes.id;`, [quizId])
+    WHERE attempts.id = $1
+    ORDER BY id;`, [attemptsId])
     .then (data => {
       console.log('check ', data);
       const templateVars = {attempts: data.rows}
@@ -30,7 +30,6 @@ module.exports = (db) => {
         .json({ error: error.message });
     });
   })
-
 
   //Inserting data into database
   router.post('/:quiz_id/result/:user_id' ,(req,res) => {
