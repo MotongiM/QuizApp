@@ -20,14 +20,12 @@
     <div class='container'>
       <div class= 'results'>
     <h1>Your Results</h1>
-    <h1><%= quizzes.title %></h1>
-    <div class='answer-results'>
+    <h2></h2>
+    <div class='answer-result'>
       <% for (let answer of attempts) { %>
-        <span class='question_results'> Question: <%= answers.question_id %> </span>
-        <span class='correct-answer'> Correct Answer: <%= answers.answer[0] %></span>
-        <span class='users-answer'> Your Answer: <%= answers.answer %></span>
-
-        <% if (answers.correct_answer === true) { %>
+        <span class='question_results'> Question: <%= answer.question %> </span>
+        <span class='users-answer'> Your Answer: <%= answer.answer %></span>
+        <% if (answer.correct_answer === true) { %>
         <span class='true'>CORRECT</span>
         <br>
         <% } else { %>
@@ -44,7 +42,7 @@
       <input type ="submit" value="Share">
     </form>
   </div>
-  <div class= 'quiz-redirect'> Take another Quiz!</div>
+  <a href="/"><div class= 'quiz-redirect'> Take another Quiz!</div></a>
 </div>
 </body>
 
