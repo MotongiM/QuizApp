@@ -11,6 +11,7 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +33,7 @@
           </div>
             <form class="quiz-buttons">
               <button><a href="/quiz/<%=quiz.id%>">Attempt</a></button>
-              <button>Share</button>
+              <button class="share" data-clipboard-text="/quiz/<%=quiz.id%>">Share</button>
             </form>
         </div>
       <% } %>
